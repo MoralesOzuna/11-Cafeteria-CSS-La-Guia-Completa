@@ -369,8 +369,31 @@ h3 {
 }
 
 /* Sass busca de fomr automaticamente el _index.scss */
+/* Entramos a la carpeta base para obtener las variables */
 .header {
-  color: black;
+  padding: 5rem 0;
+  position: relative;
+  background-color: red;
+}
+.header::before {
+  content: "";
+  position: absolute;
+  background-color: #000000;
+  /* Con esta parte haces que el contenido de ::before se estire ocupando todo el espacio */
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  opacity: 0.6; /* 0 al 1 siendo 1 completamente oscuro*/
+}
+.header .contenido-header {
+  position: relative;
+}
+
+/* Header de cada pagina */
+.header-inicio {
+  background-image: url(../img/header_inicio.jpg);
+  background-color: blue;
 }
 
 .navegacion {

@@ -54,7 +54,6 @@ function dev(){
     /* mira cambios en 'src/scss/app.scss' y ejecuta la funcion css*/
 }
 
-n
 
 
 exports.css = css;
@@ -62,7 +61,7 @@ exports.dev = dev;
 exports.imagenes = imagenes;
 exports.versionWebp = versionWebp;
 exports.versionAvif = versionAvif;
-exports.default = series(imagenes, versionWebp, versionAvif, css, dev)
+exports.default = series(imagenes, /* versionWebp, versionAvif, */ css, dev)
 
 /* Series - ejecuta una primer tarea y hasta que finaliza, inicia la siguiente
 parallel - todas inician al mismo tiempo*/
