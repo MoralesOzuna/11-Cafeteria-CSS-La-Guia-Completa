@@ -11,12 +11,14 @@ html {
 }
 
 body{
-    font-family: v.$fuente_principal ;
+    font-family: v.$fuenteSecundaria ;
     font-size: 1.6rem;
+    background-color: v.$cafeClaro;
 }
 p{
     color: v.$negro;
-    font-size: 2rem;
+    font-size: 1.6rem;
+    line-height: 2;
 }
 .contenedor{
     width: 95%;
@@ -26,11 +28,13 @@ p{
 
 a{
     text-decoration: none;
+    color: v.$negro;
 }
 
 img{
     max-width: 100%;
     display: block;
+    height: auto; /* El height se define de acuerdo al width de la imagen */
 }
 
 h1,h2,h3{
@@ -44,4 +48,9 @@ h2{
 }
 h3{
     font-size: 3.2rem;
+}
+ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }

@@ -1,0 +1,14 @@
+@use 'base/variables' as v; 
+@use 'base/mixins' as m;
+
+
+.contenido-principal{
+    background-color: v.$blanco;
+    padding: 5rem;
+
+    @include m.tablet { 
+        padding:10rem;
+        margin-top: -10rem;
+        position: relative; /* Coloca el contenido por enfrente del padre */
+     }
+}

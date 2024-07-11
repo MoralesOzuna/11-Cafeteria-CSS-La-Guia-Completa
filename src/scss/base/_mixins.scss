@@ -1,12 +1,29 @@
+ @use 'variables' as v;
+
+ /* @content nos permite recibir todo el contenido que se le inyecten a esos mixins */
+ 
+ 
+ @mixin telefono{
+    @media (min-width: v.$telefono) {
+        @content;
+    }
+ }
+
+ @mixin tablet{
+    @media(min-width: v.$tablet) {
+        @content;
+    }
+ }
 
 
-@mixin color {
-    color: black;
-    font-size: 2rem;
-    text-decoration: none;
-}
+ @mixin desktop{
+    @media(min-width: v.$desktop){
+        @content;
+    }
+ }
 
-
-@mixin bgColor( $color ){
-    background-color: $color;
+ @mixin grid($columnas, $espaciado){
+    display:grid;
+    grid-template-columns: repeat($columnas,1fr);
+    gap: $espaciado;
 }

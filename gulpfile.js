@@ -5,6 +5,9 @@ const { src, dest, watch, series, parallel} = require('gulp');
 const sass = require('gulp-sass')(require('sass'));
 const postcss = require('gulp-postcss'); /* Esta dependencia nos ayuda a hacer nuestro codigo compatible con todos los navegadores */
 const autoprefixer = require('autoprefixer');/* Esta dependencia nos ayuda a hacer nuestro codigo compatible con todos los navegadores */
+const sourcemaps = require('gulp-sourcemaps');
+const cssnano = require('cssnano');
+
 
 /* Imagenes */
 const imagemin = require('gulp-imagemin');
@@ -20,8 +23,10 @@ function css(done) {
         dest funcion que nos permite guardar en .css
     pipe nos permite ejecutar otra tarea antes de terminar la funcion*/
     src('src/scss/app.scss') /* identifica */
+        .pipe( sourcemaps.init()) /* Inicializa sourcemaps */
         .pipe( sass() ) /* copila */ /*.pipe( sass({ outputStyle: 'compressed'}) )  outputStyle nos agrega un modo de copilar el codigo visualmente al momento de guardar en el archivo .css */
-         .pipe( postcss ( [ autoprefixer() ]) )  /* Hace compatible nuestro codigo con todos los navegadores */
+        .pipe( postcss ( [ autoprefixer(), cssnano() ]) )  /* Hace compatible nuestro codigo con todos los navegadores */
+        .pipe (sourcemaps.write('.'))
         .pipe( dest('build/css')) /* guarda en build/css */
 
         done();
@@ -54,14 +59,12 @@ function dev(){
     /* mira cambios en 'src/scss/app.scss' y ejecuta la funcion css*/
 }
 
-
-
 exports.css = css;
 exports.dev = dev;
 exports.imagenes = imagenes;
 exports.versionWebp = versionWebp;
 exports.versionAvif = versionAvif;
-exports.default = series(imagenes, /* versionWebp, versionAvif, */ css, dev)
+exports.default = series(imagenes,  versionWebp, versionAvif, css, dev)
 
 /* Series - ejecuta una primer tarea y hasta que finaliza, inicia la siguiente
 parallel - todas inician al mismo tiempo*/

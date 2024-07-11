@@ -4,8 +4,28 @@
 .header{
     padding: 5rem 0;
     position: relative;
-    @include m.bgColor(red);
+    background-repeat: no-repeat;
+    background-size: cover;
+    @include m.tablet { 
+        min-height: 70rem ;
+     }
 
+    @include m.telefono { 
+        
+    }
+
+    @include m.tablet { 
+        
+     }
+    
+    @include m.tablet{
+        padding: 3rem;
+    }
+
+    @include m.desktop{
+        padding: 4rem;
+    }
+ 
     &::before{
         content: '';
         position: absolute;
@@ -22,15 +42,48 @@
 
     .contenido-header{
         position: relative;
+
+        h1{
+            text-align: center;
+            color: v.$blanco;
+            text-transform: uppercase;
+            margin-top: 5rem;
+
+            @include m.tablet { 
+                margin-top: 10rem;
+             }
+        }
     }
 
     
 }
 
 /* Header de cada pagina */
+
+
+
+/* PRACTICA AGREGAR AVIF ETC ETC */
+/* clase 150 */
 .header-inicio{
     background-image: url(../img/header_inicio.jpg);
-    @include m.bgColor(blue);
+}
 
+.header-nosotros{
+    background-image: url(../img/header_nosotros.jpg);
+}
 
+.header-proceso{
+    background-image: url(../img/header_proceso.jpg);
+}
+
+.header-menu{
+    background-image: url(../img/header_menu.jpg);
+}
+
+.header-galeria{
+    background-image: url(../img/header_galeria.jpg);
+}
+
+.header-contacto{
+    background-image: url(../img/header_contacto.jpg);
 }

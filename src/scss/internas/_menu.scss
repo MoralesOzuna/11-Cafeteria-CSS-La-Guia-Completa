@@ -1,0 +1,27 @@
+@use 'base/variables' as v; /* Entramos a la carpeta base para obtener las variables */
+@use 'base/mixins' as m;
+
+
+.contenido-menu{
+    background-image: url(../img/cafe.jpg);
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: 100%;
+    aspect-ratio: 3 / 6; /* Por cada pixel horizontal recibe 2 verticales */
+
+    @include m.telefono{
+        aspect-ratio: 3 / 4;
+    }
+
+
+    @include m.tablet{
+        @include m.grid(2, separacion);
+        aspect-ratio: 16/6;
+        background-size: 40%;
+        background-position: bottom right;
+    }
+
+    .texto{
+        font-size: 2rem;
+    }
+}
